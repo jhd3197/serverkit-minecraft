@@ -1,5 +1,9 @@
 # ServerKit Minecraft
 
+<p>
+  <img src="assets/logo-256.png" alt="ServerKit Minecraft logo" width="96" align="right" />
+</p>
+
 Run a Minecraft server for your friends in a few clicks — a first-party
 [ServerKit](https://github.com/jhd3197/ServerKit) extension. Java (Vanilla /
 Paper / Fabric / Forge) and Bedrock editions, on the standard
