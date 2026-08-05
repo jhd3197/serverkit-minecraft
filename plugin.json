@@ -1,0 +1,58 @@
+{
+  "name": "serverkit-minecraft",
+  "display_name": "Minecraft Server",
+  "version": "1.0.0",
+  "description": "Run a Minecraft server for your friends in a few clicks: Java (Vanilla/Paper/Fabric/Forge) and Bedrock, on the standard itzg community images. One-screen create wizard riding the Deploy Console, live console with RCON, player management, grouped server.properties settings, save-aware world backups with retention, scheduled restarts with in-game countdown warnings, join/leave/crash notifications, and a 'Share with friends' card. First vertical of the game-server family.",
+  "author": "ServerKit",
+  "license": "MIT",
+  "category": "games",
+  "homepage": "https://github.com/jhd3197/serverkit-minecraft",
+  "repository": "https://github.com/jhd3197/serverkit-minecraft",
+  "permissions": ["docker", "filesystem", "network"],
+  "min_panel_version": "1.7.0",
+  "sdk_version": "^1.0.0",
+  "frontend_entry": "dist/index.mjs",
+  "entry_point": "minecraft:minecraft_bp",
+  "url_prefix": "/api/v1/minecraft",
+  "models": "models:register",
+  "jobs": [
+    { "kind": "minecraft.schedule", "handler": "server_service:run_scheduled_job" },
+    { "kind": "minecraft.event_scan", "handler": "server_service:run_event_scan" }
+  ],
+  "schedules": [
+    { "name": "minecraft-event-scan", "kind": "minecraft.event_scan", "interval_seconds": 60 }
+  ],
+  "icon": "<path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/>",
+  "contributions": {
+    "nav": [
+      {
+        "id": "minecraft",
+        "label": "Minecraft",
+        "route": "/minecraft",
+        "category": "infrastructure",
+        "icon": "<path d=\"M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z\"/>"
+      }
+    ],
+    "routes": [
+      { "path": "minecraft/*", "component": "MinecraftExtension" }
+    ],
+    "page_titles": {
+      "/minecraft": "Minecraft Servers",
+      "/minecraft/new": "New Minecraft Server"
+    },
+    "command_palette": [
+      {
+        "label": "Minecraft Servers",
+        "path": "/minecraft",
+        "category": "Pages",
+        "keywords": "minecraft game server java bedrock vanilla paper fabric forge"
+      },
+      {
+        "label": "New Minecraft Server",
+        "path": "/minecraft/new",
+        "category": "Pages",
+        "keywords": "minecraft create host game server"
+      }
+    ]
+  }
+}
