@@ -1,0 +1,34 @@
+{
+  "_comment": "Sidecar metadata for Minecraft server.properties (plan 53 Phase 0). The file is the source of truth; this adds grouping/labels/descriptions/restart-required so config_form.build_form() renders a real grouped form. Keys not listed here still appear, in an implicit 'other' group. restart_required flags fields the running server won't pick up live.",
+  "groups": [
+    { "id": "general", "label": "General", "order": 1 },
+    { "id": "world", "label": "World & Generation", "order": 2 },
+    { "id": "players", "label": "Players & Access", "order": 3 },
+    { "id": "gameplay", "label": "Gameplay", "order": 4 },
+    { "id": "network", "label": "Network", "order": 5 },
+    { "id": "performance", "label": "Performance", "order": 6 },
+    { "id": "other", "label": "Other", "order": 99 }
+  ],
+  "fields": {
+    "motd": { "label": "Server Message (MOTD)", "description": "The message shown in the client's server list.", "group": "general", "type": "string" },
+    "difficulty": { "label": "Difficulty", "description": "peaceful, easy, normal, or hard.", "group": "gameplay", "type": "string", "options": ["peaceful", "easy", "normal", "hard"] },
+    "gamemode": { "label": "Default Game Mode", "description": "survival, creative, adventure, or spectator.", "group": "gameplay", "type": "string", "options": ["survival", "creative", "adventure", "spectator"] },
+    "hardcore": { "label": "Hardcore", "description": "One life; death bans the player.", "group": "gameplay", "type": "boolean" },
+    "pvp": { "label": "PvP", "description": "Allow players to damage each other.", "group": "gameplay", "type": "boolean" },
+    "level-name": { "label": "World Name", "description": "Folder name of the world save.", "group": "world", "type": "string", "restart_required": true },
+    "level-seed": { "label": "World Seed", "description": "Seed for world generation (blank = random). Only affects a fresh world.", "group": "world", "type": "string", "restart_required": true },
+    "level-type": { "label": "World Type", "description": "normal, flat, largeBiomes, amplified.", "group": "world", "type": "string", "restart_required": true },
+    "generate-structures": { "label": "Generate Structures", "description": "Villages, strongholds, etc.", "group": "world", "type": "boolean" },
+    "max-players": { "label": "Max Players", "description": "Maximum simultaneous players.", "group": "players", "type": "integer" },
+    "white-list": { "label": "Whitelist", "description": "Only whitelisted players may join.", "group": "players", "type": "boolean" },
+    "enforce-whitelist": { "label": "Enforce Whitelist", "description": "Kick non-whitelisted players already online when the whitelist reloads.", "group": "players", "type": "boolean" },
+    "online-mode": { "label": "Online Mode", "description": "Verify players against Mojang auth. Turn off ONLY for offline/LAN play.", "group": "players", "type": "boolean", "restart_required": true },
+    "spawn-protection": { "label": "Spawn Protection Radius", "description": "Blocks around spawn only ops can modify.", "group": "players", "type": "integer" },
+    "server-port": { "label": "Server Port", "description": "TCP port clients connect to (Java).", "group": "network", "type": "integer", "restart_required": true },
+    "server-ip": { "label": "Server IP", "description": "Bind address (blank = all interfaces).", "group": "network", "type": "string", "restart_required": true },
+    "enable-rcon": { "label": "Enable RCON", "description": "Remote console. ServerKit uses this — leave on.", "group": "network", "type": "boolean", "restart_required": true },
+    "view-distance": { "label": "View Distance", "description": "Chunks sent to players. Lower = less CPU/RAM.", "group": "performance", "type": "integer" },
+    "simulation-distance": { "label": "Simulation Distance", "description": "Chunks ticked around players.", "group": "performance", "type": "integer" },
+    "max-tick-time": { "label": "Max Tick Time (ms)", "description": "Watchdog: crash the server if a tick exceeds this. -1 disables.", "group": "performance", "type": "integer" }
+  }
+}
