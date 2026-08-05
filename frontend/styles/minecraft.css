@@ -1,0 +1,445 @@
+/* Minecraft extension pages (plan 53) — server list, create wizard, detail
+   tabs (Overview / Console / Players / Settings / Backups / Schedules).
+   Plain CSS (no SCSS) so it inlines into the runtime-ESM bundle via the
+   entry's `?inline` import; it themes through the panel's runtime CSS custom
+   properties (--bg-card, --text-*, --accent-primary, --mono, …), so workspace
+   accents and light/dark themes apply unchanged. */
+
+.mc-page {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mc-page--loading {
+    align-items: center;
+    justify-content: center;
+    min-height: 40vh;
+}
+
+.mc-address {
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    padding: 2px 8px;
+}
+
+.mc-address--lg {
+    font-size: 1.05rem;
+    padding: 8px 12px;
+}
+
+/* ---------------------------------------------------------------- list */
+
+.mc-list__name {
+    display: flex;
+    flex-direction: column;
+}
+
+.mc-list__name-text {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.mc-list__world {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+/* ---------------------------------------------------------------- wizard */
+
+.mc-wizard {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 720px;
+}
+
+.mc-wizard__eula {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+}
+
+.mc-wizard__eula-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.mc-wizard__eula-label a {
+    color: var(--accent-primary);
+}
+
+.mc-wizard__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+/* ---------------------------------------------------------------- detail */
+
+.mc-detail__meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mc-delete__volume {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------- overview */
+
+.mc-overview {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mc-overview__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 16px;
+}
+
+.mc-share__address-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.mc-share__steps {
+    margin: 0;
+    padding-left: 16px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.mc-share__hint {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.mc-facts {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mc-facts__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.9rem;
+}
+
+.mc-facts__row dt {
+    color: var(--text-tertiary);
+}
+
+.mc-facts__row dd {
+    margin: 0;
+    color: var(--text-primary);
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace);
+}
+
+/* ---------------------------------------------------------------- console */
+
+.mc-console {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mc-console__body {
+    height: 420px;
+    overflow-y: auto;
+    background: var(--bg-body);
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    padding: 12px;
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace);
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+.mc-console__line {
+    color: var(--text-secondary);
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.mc-console__empty {
+    color: var(--text-tertiary);
+}
+
+.mc-console__composer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mc-console__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.mc-console__input-row {
+    display: flex;
+    gap: 8px;
+}
+
+.mc-console__input-row .ui-input {
+    flex: 1;
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace);
+}
+
+.mc-console__note {
+    padding: 12px;
+    background: rgba(73, 199, 240, 0.12);
+    border: 1px solid rgba(73, 199, 240, 0.22);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------- players */
+
+.mc-players {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mc-players__toolbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.mc-players__name {
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace);
+    color: var(--text-primary);
+}
+
+.mc-players__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.mc-players__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.mc-players__row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.mc-players__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.mc-players__list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 0;
+    border-top: 1px solid var(--border-default);
+    font-family: var(--mono, 'IBM Plex Mono', ui-monospace, Menlo, monospace);
+    font-size: 0.85rem;
+    color: var(--text-primary);
+}
+
+.mc-players__list li:first-child {
+    border-top: none;
+}
+
+.mc-players__empty {
+    color: var(--text-tertiary);
+    font-family: inherit;
+}
+
+.mc-players__bedrock-note {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------------------- settings */
+
+.mc-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 860px;
+}
+
+.mc-settings__notice {
+    padding: 12px;
+    background: rgba(73, 199, 240, 0.12);
+    border: 1px solid rgba(73, 199, 240, 0.22);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.mc-settings__restart-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(245, 185, 69, 0.12);
+    border: 1px solid rgba(245, 185, 69, 0.22);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.mc-settings__group {
+    background: var(--bg-card);
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.mc-settings__group-title {
+    margin: 0 0 12px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+.mc-settings__fields {
+    display: flex;
+    flex-direction: column;
+}
+
+.mc-settings__field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 8px 0;
+    border-top: 1px solid var(--border-default);
+}
+
+.mc-settings__field:first-child {
+    border-top: none;
+}
+
+.mc-settings__field-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.mc-settings__field-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.mc-settings__field-desc {
+    color: var(--text-tertiary);
+    font-size: 0.8rem;
+}
+
+.mc-settings__field-control {
+    flex-shrink: 0;
+    width: 260px;
+}
+
+.mc-settings__actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ---------------------------------------------------------------- backups */
+
+.mc-backups {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mc-backups__controls {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.mc-backups__option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.mc-backups__option .ui-input {
+    width: 72px;
+}
+
+/* ---------------------------------------------------------------- schedules */
+
+.mc-schedules {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.mc-schedules__form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.mc-schedules__form-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mc-schedules__form-row .ui-input {
+    flex: 1;
+    min-width: 220px;
+}
+
+.mc-schedules__hint {
+    margin: 0;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+}
