@@ -4,7 +4,7 @@
   <img src="assets/logo-256.png" alt="ServerKit Minecraft logo" width="96" align="right" />
 </p>
 
-[![Install in ServerKit](https://serverkit.ai/badge/install.svg)](https://serverkit.ai/i/ext/serverkit-minecraft)
+[<img src="https://serverkit.ai/badge/install.png" alt="Install in ServerKit" width="240">](https://serverkit.ai/i/ext/serverkit-minecraft)
 
 Run a Minecraft server for your friends in a few clicks — a first-party
 [ServerKit](https://github.com/jhd3197/ServerKit) extension. Java (Vanilla /
