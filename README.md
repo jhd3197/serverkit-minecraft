@@ -4,6 +4,8 @@
   <img src="assets/logo-256.png" alt="ServerKit Minecraft logo" width="96" align="right" />
 </p>
 
+[![Install in ServerKit](https://serverkit.ai/badge/install.svg)](https://serverkit.ai/i/ext/serverkit-minecraft)
+
 Run a Minecraft server for your friends in a few clicks — a first-party
 [ServerKit](https://github.com/jhd3197/ServerKit) extension. Java (Vanilla /
 Paper / Fabric / Forge) and Bedrock editions, on the standard
@@ -34,9 +36,18 @@ Paper / Fabric / Forge) and Bedrock editions, on the standard
 
 ## Install
 
-- **Marketplace (recommended):** ServerKit → Marketplace → find "Minecraft
-  Server" → Install.
-- **GitHub URL / zip:** panel → Marketplace → Plugins → install from
+[**Install in ServerKit →**](https://serverkit.ai/i/ext/serverkit-minecraft)
+
+Name your panel once and that link opens it straight to the install
+confirmation; it is remembered in your browser, so every later install is a
+single click. Your panel does the installing — serverkit.ai never connects to
+it, and the panel's own consent and signature checks still run.
+
+From inside the panel instead:
+
+- **Extensions page:** ServerKit → Extensions → find "Minecraft Server" →
+  Install.
+- **GitHub URL / zip:** Extensions → *Install manually* → install from
   `https://github.com/jhd3197/serverkit-minecraft` or upload the release zip.
 
 Requires ServerKit ≥ 1.7.0 with Docker. Game ports publish directly (25565/TCP
